@@ -14,10 +14,9 @@ RUN npm run build --prod
 # Serve stage
 FROM nginx:alpine
 
-# Go to nginx html folder
 WORKDIR /usr/share/nginx/html
 
-# Copy everything from dist (whatever name the app has)
+# Copy everything from dist folder (whatever name is generated)
 COPY --from=build /app/dist/. .
 
 EXPOSE 80
